@@ -1,0 +1,86 @@
+html, body
+{
+	margin: 0px;
+	height: 100%;
+	width: 100%;
+	text-align: center;
+	background-color: #000;
+}
+body
+{
+	height: calc(100% - 10px);
+}
+
+*:focus
+{
+	outline: 1px solid #aaa;
+}
+
+*
+{
+	-webkit-appearance: none;
+}
+
+.barElement
+{
+	height: 30px;
+}
+
+#main #name,
+#main #content,
+#main #submit
+{
+	display: inline-block;
+	margin: auto;
+	background-color: #222;
+	color: #eee;
+	border-style: none;
+	border-radius: 0px;
+	padding: 9px;
+	margin-top: 5px;
+}
+
+#main #name
+{
+	width: calc(100% - 119px);
+	height: 28px;
+	padding: 1px 0px;
+	text-align: center;
+}
+#main #submit
+{
+	width: 100px;
+	padding: 1px 0px;
+	display: inline-block;
+}
+
+#main #content
+{
+	margin-top: 13px;
+	width: calc(100% - 33px);
+	height: calc(100% - 73px);
+	resize: none;
+}
+
+#main form
+{
+	height: 100%;
+}
+
+#view pre
+{
+	height: 100%;
+}
+
+#view code
+{
+	background: #222 !important;
+	margin: 7px;
+	min-height: calc(100% - 19px);
+	text-align: left;
+}
+
+body#view
+{
+	height: calc(100% - 20px) !important;
+}

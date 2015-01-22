@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Paste</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body id="main">
+	<form method="post" action="upload.php" onsubmit="return validate()">
+		<textarea id="content" name="content" autofocus></textarea>
+
+		<input class="barElement" id="name" placeholder="Insert Filename Here" autocomplete="off" type="text" name="name" onkeydown="return filterChars(event)">
+		<input class="barElement" id="submit" type="submit" value="Submit">
+	</form>
+
+	<script>
+		var legalRanges =
+		[
+			[48, 57, false],  //numbers
+			[65, 90, true],   //chars
+			[96, 105, false], //numeric keypad
+			[189, 189, true], //minus
+			[8, 9, true],     //backspace and tab
+			[13, 13, true],   //enter
+			[35, 36, true],   //home and end
+			[37, 39, true],   //arrow keys
+			[45, 46, true]    //delete and insert
+		];
+		function filterChars(e)
+		{
+			var isLegal = false;
+			var keyCode = e.keyCode;
+			var modifier = e.altKey || e.shiftKey || e.ctrlKey;
+
+			for (var i in legalRanges)
+			{
+				var range = legalRanges[i];
+				if (keyCode >= range[0] && keyCode <= range[1])
+				{
+					if (!modifier || (modifier && range[2]))
+					{
+						isLegal = true;
+						break;
+					}
+				}
+			}
+
+			return isLegal;
+		}
+
+		function validate()
+		{
+			var content = document.getElementById("content");
+			if (content.value == "")
+			{
+				alert("You can't submit an empty paste.");
+				return false;
+			}
+		}
+	</script>
+</body>
+</html>
