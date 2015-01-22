@@ -15,8 +15,8 @@ function randomString($len)
 }
 
 //create "pastes" directory if it doesn't exist
-if (!is_dir("pastes"))
-	mkdir("pastes");
+if (!is_dir("../pastes"))
+	mkdir("../pastes");
 
 $content = $_POST['content'];
 $name = $_POST['name'];
@@ -43,14 +43,14 @@ if ($content === "")
 //with that name already exists
 $c = 1;
 $nwName = $name;
-while (file_exists("pastes/$nwName"))
+while (file_exists("../pastes/$nwName"))
 {
 	$nwName = "$name$c";
 	++$c;
 }
 
 //write paste file, then redirect
-file_put_contents("pastes/$nwName", $content);
+file_put_contents("../pastes/$nwName", $content);
 header("location: /$nwName");
 
 //echo the name of the paste to make life easier

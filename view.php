@@ -4,7 +4,7 @@ $name = $_GET["p"];
 if (preg_match('/[^a-zA-Z0-9\-_]/', $name))
 	die("'$name' contains illegal characters.");
 
-$content = file_get_contents("pastes/$name");
+$content = file_get_contents("../pastes/$name");
 ?>
 <!DOCTYPE html>
 <html>
