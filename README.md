@@ -6,11 +6,27 @@ pbin.in is a pastebin-like service primarily intended for code, but also suitabl
 Usage
 -----
 
+**Website**:
+
 1. Go to pbin.in, write or paste text into the big text area.
 
 2. If you want to name your paste, write a name in the filename input. If you want a random paste ID, leave the field empty.
 
 3. Press submit, and share the link with whoever you want.
+
+**Command line client**:
+
+Install the command line client as such:
+
+```
+	sudo wget https://raw.githubusercontent.com/mortie/pbin.in/master/util/pbin -O /usr/bin/pbin
+```
+
+After installation, use the command as such:
+
+```
+	pbin <file> [name]
+```
 
 Advantages over other similar services
 --------------------------------------
@@ -33,5 +49,3 @@ Of course, pbin.in isn't perfect for everyone's needs.
 * **Small**: pbin.in is for the time being my own personal side project. I can't promise not to take the website offline or remove pastes some time in the future. This shouldn't be a concern most of the time, but don't use this service to host mission critical documents, okay?
 
 * **No user account system**: There's no way to get a list of or delete pastes you've made, or other features associated with user accounts.
-
-* **No CLI client**: There's currently no command line client, though it's on the roadmap.
