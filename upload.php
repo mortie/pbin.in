@@ -1,17 +1,10 @@
 <?php
 
-function randomString($len)
+function randomChar()
 {
 	$chars="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-	$charCount = strlen($chars);
-	$string = "";
-
-	for ($i=0; $i<$len; ++$i)
-	{
-		$string .= $chars[mt_rand(0, $charCount-1)];
-	}
-
-	return $string;
+	$charCount = 62;
+	return $chars[mt_rand(0, $charCount-1)];
 }
 
 //create "pastes" directory if it doesn't exist
@@ -24,12 +17,10 @@ $name = $_POST['name'];
 //make name a random string if no name provided
 if ($name === "")
 {
-	$c = 1;
-	$name = randomString($c);
-	while (file_exists("pastes/$name"))
+	$name = randomChar();
+	while (file_exists("../pastes/$name"))
 	{
-		++$c;
-		$name = randomString($c);
+		$name .= randomChar();
 	}
 }
 
