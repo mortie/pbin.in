@@ -2,5 +2,6 @@ Options +FollowSymLinks
 RewriteEngine On
 
 rewriteRule ^([a-zA-Z0-9_\-]+)$ view.php?p=$1
+rewriteRule ^(raw\/)([a-zA-Z0-9_\-]+)$ raw.php?p=$2
 
 php_value post_max_size 1M

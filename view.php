@@ -12,6 +12,7 @@ if ($name !== "" && file_exists("../pastes/$name"))
 else
 	$content = "404: Paste '$name' doesn't exist.";
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,3 +32,4 @@ else
 	</script>
 </body>
 </html>
+<?php
