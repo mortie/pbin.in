@@ -1,21 +1,31 @@
-#!/bin/sh
+#!/bin/bash
 
 url="www.pbin.in/upload.php"
 
-if [ "$1" = "" ]; then
-	echo "pbin <file> [name]"
-	exit
-elif [ ! -s "$1" ]; then
-	echo "$1: no such file"
-	exit
+stddata=$(cat -)
+
+if [ "$stddata" = "" ]; then
+	if [ "$1" = "" ]; then
+		echo "pbin <file> [name]"
+		exit
+	elif [ ! -s "$1" ]; then
+		echo "$1: no such file"
+		exit
+	fi
 fi
 
-content=`cat $1`
+if [ "$stddata" = "" ]; then
+	content=`cat $1`
+	name="$2"
+else
+	content="$stddata"
+	name="$1"
+fi
 
-name=`curl "$url" -s -F "name=$2" -F "content=$content"`
+pasteId=`curl "$url" -s -F "name=$name" -F "content=$content"`
 
 if [ $? -eq 0 ]; then
-	echo "Your paste should now be at http://pbin.in/$name"
+	echo "Your paste should now be at http://pbin.in/$pasteId"
 else
 	echo "There was an error. The file you provided may be too big."
 fi

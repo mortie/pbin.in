@@ -19,13 +19,19 @@ Usage
 Install the command line client as such:
 
 ```
-	sudo wget https://raw.githubusercontent.com/mortie/pbin.in/master/util/pbin -O /usr/bin/pbin
+	sudo wget https://raw.githubusercontent.com/mortie/pbin.in/master/util/pbin -O /usr/bin/pbin; sudo chmod +x /usr/bin/pbin
 ```
 
 After installation, use the command as such:
 
 ```
 	pbin <file> [name]
+```
+
+Alternatively, give the command input via stdin:
+
+```
+	echo "hello, world!" | pbin [name]
 ```
 
 Advantages over other similar services
