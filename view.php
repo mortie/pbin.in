@@ -16,6 +16,7 @@ else
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8">
 	<title><?=$name ?></title>
 	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
 	<meta name="viewport" content="width=device-width">

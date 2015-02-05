@@ -2,9 +2,7 @@
 
 url="www.pbin.in/upload.php"
 
-stddata=$(cat -)
-
-if [ "$stddata" = "" ]; then
+if [ -t 0 ]; then
 	if [ "$1" = "" ]; then
 		echo "pbin <file> [name]"
 		exit
@@ -14,15 +12,17 @@ if [ "$stddata" = "" ]; then
 	fi
 fi
 
-if [ "$stddata" = "" ]; then
-	content=`cat $1`
-	name="$2"
-else
-	content="$stddata"
+if [ ! -t 0 ]; then
+	echo "catting -"
+	content=$(cat -)
+	echo "- catted"
 	name="$1"
+else
+	content=$(cat $1)
+	name="$2"
 fi
 
-pasteId=`curl "$url" -s -F "name=$name" -F "content=$content"`
+pasteId=$(curl "$url" -s -F "name=$name" -F "content=$content")
 
 if [ $? -eq 0 ]; then
 	echo "Your paste should now be at http://pbin.in/$pasteId"
