@@ -20,10 +20,10 @@ else
 	name="$2"
 fi
 
-pasteId=$(curl "$url" -s -F "name=$name" -F "content=$content")
+pasteId=$(curl "$url" -s --data-urlencode "name=$name" --data-urlencode  "content=$content")
 
 if [ $? -eq 0 ]; then
-	echo "Your paste should now be at http://pbin.in/$pasteId"
+	echo "http://pbin.in/$pasteId"
 else
 	echo "An error occurred." 1>&2
 	exit 1
